@@ -1,0 +1,92 @@
+@import "variables";
+
+.square {
+  min-width: 300px;
+  min-height: 300px;
+  width: 300px/960px * 100%;
+  //can I set the width value to a variable and tell the height to be the same?
+  max-height: 300px;
+  background-color: $light-grey;
+  display: inline-block;
+  padding: 1em;
+  opacity: .25;
+  box-shadow: inset 0em 0em 2em $light-grey, 1em 1em 1em $dark-grey;
+  overflow: hidden;
+}
+
+.row {
+  display: block;
+  width: 100%;
+  // probs not right
+  margin-top: 30px/960px * 100%;
+}
+
+.right {
+  @extend .square;
+  float: right;
+  //  margin-left: 30px/960px * 100%;
+}
+
+.left {
+  @extend .square;
+  float: left;
+  margin-right: 30px /960px * 100%;
+}
+
+.focus {
+  @extend .square;
+  background-color: #FFFFFF;
+  //border: $dark-grey solid 2px;
+  text-align: center;
+  padding: .3em;
+  opacity: 1;
+
+  h1 {
+    font-family: Vivaldi, cursive;
+  }
+
+  form {
+    margin-top: 3%;
+  }
+
+  label {
+    //    width: 2/6 * 100%;
+    margin-bottom: 1.5em;
+    font-size: 1em;
+  }
+
+  .textfield {
+    width: 70%;
+    margin-bottom: 1em;
+  }
+
+  .intro-text {
+    font-size: 1.20em;
+  }
+}
+
+.register-block {
+  @extend .focus;
+  display: none;
+
+  label {
+    //    width: 2/6 * 100%;
+    margin-bottom: .5em;
+  }
+
+  .textfield {
+    margin-bottom: .5em;
+  }
+}
+
+.register .login {
+  cursor: pointer;
+}
+
+.sample {
+  color: $dark-grey;
+  font-size: 1.3em;
+  background: linear-gradient(to bottom, $dark-grey, rgba(217, 222, 238, 0));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
