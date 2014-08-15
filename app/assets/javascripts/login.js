@@ -2,8 +2,6 @@
  * Created by savannah on 8/15/14.
  */
 $(document).ready(function () {
-
-
   $('.register').on(
     {
       mouseenter: function () {
@@ -17,6 +15,10 @@ $(document).ready(function () {
         $('.register-block').css('display', 'inline-block')
       }}
   );
+
+  $('#register-form').find('input').on(blur, function() {
+
+  });
 
 
   $('.login').on(

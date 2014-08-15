@@ -21,29 +21,4 @@ $(document).ready(function () {
   $('.button').hover(function () {
     $(this).toggleClass('button-hover');
   });
-
-
-//  $('.register').on(
-//    {
-//      mouseenter: function () {
-//      $(this).toggleClass('highlight-text-hover');
-//    },
-//      mouseleave: function () {
-//        $(this).toggleClass('highlight-text-hover');
-//      },
-//      click: function () {
-//        $('.login-block').toggle();
-//        $('.register-block').css('display', 'inline-block')
-//      }}
-//  );
-//
-//
-//  $('.login').on(
-//    {mouseover: function () {
-//      $(this).toggleClass('highlight-text-hover');
-//    },
-//      click: function () {
-//        $('.login-block').toggle();
-//        $('.register-block').css('display', 'none')
-//      }});
 });
