@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= 
+ *=
  *= require_self
  */
 
@@ -51,6 +51,11 @@ body {
   box-shadow: .15em .15em $grey;
 }
 
+.button:disabled {
+  opacity: .75;
+  cursor: default;
+}
+
 .button-hover {
   margin-left: 1%;
   margin-top: 1%;
@@ -64,6 +69,14 @@ body {
 .highlight-text-hover {
   color: $light-red;
   cursor: pointer;
+}
 
+.errors {
+  color: $light-red;
+}
+
+.error-field {
+  box-shadow: 0 0 1em $light-red;
+  outline-color: $light-red;
 }
 

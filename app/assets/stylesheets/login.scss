@@ -79,8 +79,13 @@
   }
 }
 
-.register .login {
+.register, .login {
   cursor: pointer;
+
+  &:hover {
+    color: $light-red;
+    cursor: pointer;
+  }
 }
 
 .sample {
@@ -89,4 +94,12 @@
   background: linear-gradient(to bottom, $dark-grey, rgba(217, 222, 238, 0));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.usernames {
+  display: none;
+}
+
+.register-username-error, .confirm-password-error {
+  color: $light-red;
 }

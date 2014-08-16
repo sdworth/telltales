@@ -1,0 +1,103 @@
+<% @register_check.each do |item| %>
+  <p class="usernames"><%= item %></p>
+<% end %>
+
+<div class="row">
+  <div class="sample left"><%= @sample_text %></div>
+  <div class="focus"><h1>Welcome to <span class="highlight-text">TellTales!</span></h1>
+
+    <p class="intro-text">TellTales allows you to create and add to other user's stories--150 characters at a time. Join
+      now and start building your story!</p>
+  </div>
+  <div class="sample right"><%= @sample_text %></div>
+</div>
+
+<div class="row">
+  <div class="sample left"><%= @sample_text %></div>
+
+  <div class="focus register-block">
+    <p><span class="highlight-text login">Login</span>
+
+      or
+
+      <span>Register</span> below: </p>
+
+    <%= form_for @user, html: {id: "register-form"} do |f| %>
+      <div>
+        <%= f.label :username %>
+        <span class="register-username-error"></span>
+        <span class='errors'><%= @user.errors[:username].first if @user.errors[:username] %></span>
+        <br>
+        <%= f.text_field :username, class: "textfield", autofocus: true %>
+        <br>
+      </div>
+      <div>
+        <%= f.label :email %>
+        <span class="errors"></span>
+        <br>
+        <%= f.text_field :email, class: "textfield" %>
+        <br>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <span class="errors"></span>
+        <br>
+        <%= f.text_field :password, class: "textfield" %>
+        <br>
+      </div>
+      <div>
+        <%= f.label :"confirm password" %>
+        <span class="errors"></span>
+        <span class="confirm-password-error"></span>
+        <br>
+        <%= f.text_field :password_confirmation, class: "textfield" %>
+        <br>
+      </div>
+
+      <div class="login-button-div">
+        <%= f.submit "Login", class: 'button', disabled: true %>
+      </div>
+    <% end %>
+
+  </div>
+
+  <div class="focus login-block">
+    <%= @user.errors.full_messages unless @user.errors.full_messages == [] %>
+
+    <p><span class="highlight-text register">Register</span>
+
+      or
+
+      <span>Login</span> below:</p>
+
+    <%= form_for @user, url: session_path, html: {id: 'login-form'} do |f| %>
+      <div>
+        <%= f.label :username %>
+        <span class="errors"></span>
+
+        <br>
+        <%= f.text_field :username, class: "textfield", autofocus: true %>
+      </div>
+      <br>
+
+      <div>
+        <%= f.label :password %>
+        <span class="errors"></span>
+        <br>
+        <%= f.text_field :password, class: "textfield" %>
+      </div>
+      <br>
+
+      <div class="login-button-div">
+        <%= f.submit "Login", class: 'button', disabled: true %>
+      </div>
+
+    <% end %>
+  </div>
+  <div class="sample right"><%= @sample_text %></div>
+</div>
+<div class="row">
+  <div class="sample left"><%= @sample_text %></div>
+  <div class="sample square"><%= @sample_text %></div>
+  <div class="sample right"><%= @sample_text %></div>
+</div>

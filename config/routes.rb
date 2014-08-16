@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root "login#index"
+  resource :dashboard, only: :show
+  resource :session, only: :create
+  resources :users, only: :create
 
-  post '/login/new' => 'login#create'
-  post '/login' => 'login#login'
-
-  get '/dashboard' => 'starts#index'
-  resources :starts
+  root "root#show"
 end
