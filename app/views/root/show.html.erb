@@ -1,10 +1,7 @@
-<% @register_check.each do |item| %>
-  <p class="usernames"><%= item %></p>
-<% end %>
 
 <div class="row">
   <div class="sample left"><%= @sample_text %></div>
-  <div class="focus"><h1>Welcome to <span class="highlight-text">TellTales!</span></h1>
+  <div class="focus"><h1>WELCOME TO <span class="highlight-text">TELLTALES!</span></h1>
 
     <p class="intro-text">TellTales allows you to create and add to other user's stories--150 characters at a time. Join
       now and start building your story!</p>
@@ -55,7 +52,7 @@
       </div>
 
       <div class="login-button-div">
-        <%= f.submit "Login", class: 'button', disabled: true %>
+        <%= f.submit "Register", class: 'button', disabled: true %>
       </div>
     <% end %>
 
@@ -63,6 +60,8 @@
 
   <div class="focus login-block">
     <%= @user.errors.full_messages unless @user.errors.full_messages == [] %>
+
+    <p class="error-message"><%= flash[:alert] %></p>
 
     <p><span class="highlight-text register">Register</span>
 

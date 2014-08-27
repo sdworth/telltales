@@ -1,0 +1,29 @@
+.centered-form {
+  margin: auto;
+  width: 60%;
+
+
+  .textfield {
+    width: 70%;
+  }
+
+  .side-label {
+    width: 100px;
+  }
+
+  .button {
+    margin-top: 20px;
+    width: 20%
+  }
+}
+
+.form-div {
+  background-color: rgba(255, 255, 255, .80);
+  padding: 10px;
+  padding-top: 20px;
+  width: 80%;
+}
+
+#prompt-generator {
+  cursor: pointer;
+}

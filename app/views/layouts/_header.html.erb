@@ -1,0 +1,23 @@
+<div class="header-background">
+  <div class="header-wrapper">
+    <h1>TELLTALES</h1>
+    <span class="greeting">Welcome, <% @user.username %></span>
+    <span class="search-button">🔎</span>
+    <span class="dropdown-button">...</span>
+  </div>
+</div>
+
+<div class="search">
+  <%= form_tag("/search", method: "get") do %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+  <% end %>
+</div>
+
+<div class="header-dropdown-menu">
+  <ul class="dropdown-list">
+    <li>New story</li>
+    <li>My stories</li>
+    <li>Account settings</li>
+  </ul>
+</div>

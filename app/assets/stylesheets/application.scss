@@ -11,7 +11,7 @@
  * file per style scope.
  *
  *=
- *= require_self
+ *=
  */
 
 *, *:before, *:after {
@@ -22,30 +22,37 @@
 
 @import "variables";
 @import "login";
+@import "header";
+@import "dashboard";
+@import "story";
+@import "story_list";
+@import "footer";
+
+a {
+  color: $dark-grey;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $light-red;
+}
 
 body {
   background-image: linear-gradient(to top, $grey, white);
   font-family: Didot, sans-serif;
   color: $dark-grey;
-}
-
-.wrapper {
-  width: 80%;
-  min-width: 960px;
-  margin: auto;
-  margin-bottom: 50px;
-  opacity: 1;
+  margin: 0;
 }
 
 .button {
   color: $light-red;
-  background-color: $grey;
+  background-color: $dark-grey;
   background-image: linear-gradient(to bottom, #70747f, $dark-grey);
   border: 1px $red solid;
-  border-radius: 5px;
+  border-radius: 10px;
   display: inline-block;
-  padding: 5px;
-  font-size: 1em;
+  padding: 2px;
+  font-size: .75em;
   width: 5em;
   cursor: pointer;
   box-shadow: .15em .15em $grey;
@@ -57,9 +64,27 @@ body {
 }
 
 .button-hover {
-  margin-left: 1%;
-  margin-top: 1%;
+//  margin-left: 1%;
+//  margin-top: 1%;
   box-shadow: 0 0 1em $light-red;
+}
+
+.centered-title {
+  margin-top: 1em;
+  text-align: center;
+}
+
+.errors {
+  color: $light-red;
+}
+
+.error-message {
+  color: $light-red;
+}
+
+.flash {
+  text-align: center;
+  color: $teal;
 }
 
 .highlight-text {
@@ -71,12 +96,37 @@ body {
   cursor: pointer;
 }
 
-.errors {
-  color: $light-red;
+.side-label {
+  display: inline-block;
+  width: 15%;
+}
+
+.textfield {
+  border:none;
+  background-color: $light-grey;
+  border-radius: 10px;
+  height: 2em;
+  box-shadow: inset .25em .25em .25em $grey;
+  padding: .5em;
+}
+
+.textarea {
+  height: 10em;
+  resize: none;
+  margin-top: .5em;
 }
 
 .error-field {
-  box-shadow: 0 0 1em $light-red;
+  box-shadow: inset .25em .25em .25em $grey, 0 0 1em $light-red;
   outline-color: $light-red;
+}
+
+
+.wrapper {
+  width: 80%;
+  min-width: 960px;
+  margin: auto;
+  opacity: 1;
+  min-height: 960px;
 }
 

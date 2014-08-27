@@ -1,4 +1,4 @@
-@import "variables";
+//@import "variables";
 
 .square {
   min-width: 300px;
@@ -10,39 +10,22 @@
   display: inline-block;
   padding: 1em;
   opacity: .25;
-  box-shadow: inset 0em 0em 2em $light-grey, 1em 1em 1em $dark-grey;
+  //border: 2px $light-grey solid;
+  box-shadow: 1em 1em 1em $dark-grey; // inset 0em 0em 1em $light-grey,
   overflow: hidden;
-}
-
-.row {
-  display: block;
-  width: 100%;
-  // probs not right
-  margin-top: 30px/960px * 100%;
-}
-
-.right {
-  @extend .square;
-  float: right;
-  //  margin-left: 30px/960px * 100%;
-}
-
-.left {
-  @extend .square;
-  float: left;
-  margin-right: 30px /960px * 100%;
+  border-radius: 10px;
 }
 
 .focus {
   @extend .square;
-  background-color: #FFFFFF;
+  background-color: rgba(255, 255, 255, .95);
   //border: $dark-grey solid 2px;
   text-align: center;
   padding: .3em;
   opacity: 1;
 
   h1 {
-    font-family: Vivaldi, cursive;
+   // font-family: Vivaldi, cursive;
   }
 
   form {
@@ -65,6 +48,38 @@
   }
 }
 
+.left {
+  @extend .square;
+  float: left;
+  margin-right: 30px /960px * 100%;
+}
+
+.right {
+  @extend .square;
+  float: right;
+  //  margin-left: 30px/960px * 100%;
+}
+
+.register-username-error, .confirm-password-error {
+  color: $light-red;
+}
+
+.row {
+  display: block;
+  width: 100%;
+  // probs not right
+  margin-top: 30px/960px * 100%;
+}
+
+.register, .login {
+  cursor: pointer;
+
+  &:hover {
+    color: $light-red;
+    cursor: pointer;
+  }
+}
+
 .register-block {
   @extend .focus;
   display: none;
@@ -79,15 +94,6 @@
   }
 }
 
-.register, .login {
-  cursor: pointer;
-
-  &:hover {
-    color: $light-red;
-    cursor: pointer;
-  }
-}
-
 .sample {
   color: $dark-grey;
   font-size: 1.3em;
@@ -98,8 +104,4 @@
 
 .usernames {
   display: none;
-}
-
-.register-username-error, .confirm-password-error {
-  color: $light-red;
 }

@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require_tree .
 
 
@@ -21,4 +20,6 @@ $(document).ready(function () {
   $('.button').hover(function () {
     $(this).toggleClass('button-hover');
   });
+
+  setTimeout(function() {$('.flash').fadeOut(1000)}, 3000);
 });

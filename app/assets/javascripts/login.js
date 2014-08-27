@@ -3,13 +3,13 @@
  */
 $(document).ready(function () {
   $('.register').on('click', function () {
-      $('.login-block').toggle();
-      $('.register-block').css('display', 'inline-block')
+    $('.login-block').toggle();
+    $('.register-block').css('display', 'inline-block')
   });
 
   $('.login').on('click', function () {
-      $('.login-block').toggle();
-      $('.register-block').css('display', 'none')
+    $('.login-block').toggle();
+    $('.register-block').css('display', 'none')
   });
 
 
@@ -18,21 +18,28 @@ $(document).ready(function () {
     var usernameField = this;
     var free = true;
 
-    //usernames class contains all current usernames, each in a p tag
-    $('.usernames').each(function () {
-      if (this.innerText == usernameField.value) {
-        free = false;
+    var promisedUsernames = $.getJSON('/usernames');
+
+    promisedUsernames.success(function (usernames) {
+
+      $.each(usernames, function (index, username) {
+        if (username == usernameField.value) {
+          free = false;
+        }
+      });
+
+      if (!free ) {
+        $('button').attr('disabled', true);
+        $('.register-username-error').text('is already taken');
+        $(usernameField).addClass('error-field')
+      } else if (usernameField.value == '') {
+        $(usernameField).addClass('error-field')
+      } else
+      {
+        $(usernameField).removeClass('error-field');
+        $('.register-username-error').text('')
       }
     });
-
-    if (!free) {
-      $('button').attr('disabled', true);
-      $('.register-username-error').text('is already taken');
-      usernameField.addClass('error-field')
-    } else {
-      usernameField.removeClass('error-field');
-      $('.register-username-error').text('')
-    }
   });
 
   //runs validations when disabled button is clicked
@@ -50,7 +57,7 @@ $(document).ready(function () {
 
           blank = true;
         } else {
-          $(this).removeClass('error-field');
+  //        $(this).removeClass('error-field');
           $(this).parent('div').find('.errors').empty()
         }
       });
@@ -64,7 +71,7 @@ $(document).ready(function () {
   });
 
   //checks that password has been confirmed
-  $('#user_password_confirmation').on('input', function() {
+  $('#user_password_confirmation').on('input', function () {
     var password = $(this).parents('.focus').find('#user_password');
     if (this.value != password[0].value) {
       console.log($(this));
@@ -102,7 +109,7 @@ $(document).ready(function () {
       $(this).parents('.focus').find('.button').attr('disabled', true)
     }
 
-    //checks for other form errors
+//    checks for other form errors
     var errorText = $('.register-username-error');
     if (errorText[0].innerText == 'is already taken') {
       $(errorText).siblings('input').addClass('error-field');
@@ -110,6 +117,4 @@ $(document).ready(function () {
     }
 
   });
-
-
 });
