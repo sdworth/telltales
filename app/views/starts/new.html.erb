@@ -6,9 +6,13 @@
     characters, and then you and other users can add on!</p>
 
   <p>Not sure what to write? Here's a prompt:
-    <!--Here's a prompt:<span class="highlight-text"> <%= RandomWordGenerator.word %> <%= RandomWordGenerator.word %> <%= RandomWordGenerator.word %></span>!-->
 
-     <span class="highlight-text" id="prompt-target"><%= RandomWordGenerator.word %> <%= RandomWordGenerator.word %> <%= RandomWordGenerator.word %></span>! Click <span class="highlight-text" id="prompt-generator">here</span> for a new one.</p>
+     <span class="highlight-text" id="prompt-target">
+       <%= Bazaar.item%>
+       <%= Bazaar.super_adj %>
+       <%= Bazaar.super_item%>
+     </span>
+    ! Click <span class="highlight-text" id="prompt-generator">here</span> for a new one.</p>
 
   <div class="form-div">
     <%= form_for @start, html: {class: 'new-story-form'} do |f| %>

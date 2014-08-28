@@ -47,7 +47,7 @@ gem 'rails_12factor'
 
 gem 'autoprefixer-rails'
 
-gem 'random-word-generator'
+gem 'bazaar'
 
 gem 'selenium-webdriver'
 

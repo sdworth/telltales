@@ -1,4 +1,4 @@
-require 'random_word_generator'
+require 'bazaar'
 
 class StartsController < ApplicationController
   before_filter :require_authentication!
@@ -8,7 +8,7 @@ class StartsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.json { render json: [RandomWordGenerator.word, RandomWordGenerator.word, RandomWordGenerator.word] }
+      format.json { render json: [Bazaar.item, Bazaar.super_adj, Bazaar.super_item] }
     end
   end
 
