@@ -2,12 +2,14 @@
  * Created by savannah on 8/15/14.
  */
 $(document).ready(function () {
-  $('.register').on('click', function () {
+  $('.register').on('click', function (e) {
+    e.preventDefault();
     $('.login-block').toggle();
     $('.register-block').css('display', 'inline-block')
   });
 
-  $('.login').on('click', function () {
+  $('.login').on('click', function (e) {
+    e.preventDefault();
     $('.login-block').toggle();
     $('.register-block').css('display', 'none')
   });

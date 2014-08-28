@@ -12,6 +12,8 @@ singing vows before we exchange smoke rings
 Call me, mr bezendrine
 but don't let the doctor in I wanna blow off steam and "
     @user = User.new
+
+    # http://localhost:3000/username_availability.json?username=savannah
   end
 
   def new

@@ -5,18 +5,17 @@
 $(document).ready(function () {
 
   $('#prompt-generator').click(function () {
-    var promiseOfWords = $.getJSON('/starts/new');
+    var promiseOfWords = $.getJSON('/starts/new')
+      .success(function (words) {
+        console.log(words);
 
-    console.log(promiseOfWords);
-
-    promiseOfWords.success(function (words) {
-      console.log('here');
-      console.log(words);
-
-      var prompt_target = $('#prompt-target');
-      $(prompt_target).empty();
-      prompt_target.append(words);
-    });
+        var prompt_target = $('#prompt-target');
+        $(prompt_target).empty();
+        prompt_target.append(words.join(" "));
+      })
+      .fail(function (words) {
+        console.log(words.responseText);
+      });
   });
 
   //gives can't be blank errors

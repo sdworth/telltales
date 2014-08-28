@@ -2,17 +2,18 @@ require 'rails_helper'
 require 'capybara/rails'
 
 feature 'Login' do
-  scenario 'can register' do
+  scenario 'can register', js: true do
     register
   end
 
-  scenario 'can login' do
+  scenario 'can login', js: true do
     login
 
   end
 
   def register
     visit "/"
+    click_on 'Register'
     within '.register-block' do
       fill_in 'user_username', with: 'user'
       fill_in 'user_password', with: 'password'

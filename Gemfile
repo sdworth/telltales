@@ -49,5 +49,7 @@ gem 'autoprefixer-rails'
 
 gem 'random-word-generator'
 
+gem 'selenium-webdriver'
+
 
 

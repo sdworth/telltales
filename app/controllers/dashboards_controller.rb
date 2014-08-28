@@ -1,9 +1,8 @@
 class DashboardsController < ApplicationController
 
-  def show
-    redirect_to root_path if session[:user_id] == nil
+  before_filter :require_authentication!
 
-    @user = User.find(session[:user_id])
+  def show
     @starts = Start.where(user_id: @user.id)
 
     respond_to do |format|
