@@ -9,11 +9,12 @@
 
 .story-blurb {
   border: 2px white solid;
-  display: flex;
   width: 80%;
   margin: 50px;
   padding: 10px;
   margin-bottom: 50px;
+  display: flex;
+  height: 250px;
 
   h1 {
     color: $red;
@@ -27,11 +28,16 @@
 .blurb-functional {
   border-right: 1px white solid;
   padding-right: 10px;
-  flex-grow: 1;
-  min-width: 300px;
+  width: 280px;
+  flex-grow: 0;
+  //flex-basis: 0;
+  flex-shrink: 0;
 }
 
 .blurb-story {
-  flex-grow: 4;
   padding-left: 10px;
+  flex-shrink: 0;
+  flex-basis: 300px;
+  flex-grow: 1;
+  overflow: scroll;
 }
