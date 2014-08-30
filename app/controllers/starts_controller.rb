@@ -14,6 +14,7 @@ class StartsController < ApplicationController
 
   def create
     @start = @user.starts.build(start_params)
+
     if @start.save
       flash[:notice] = "Story '#{@start.title}' created!"
       redirect_to '/dashboard'

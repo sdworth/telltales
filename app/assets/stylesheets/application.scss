@@ -27,6 +27,7 @@
 @import "story";
 @import "story_list";
 @import "footer";
+@import "search";
 
 a {
   color: $dark-grey;
@@ -89,6 +90,10 @@ body {
 
 .highlight-text {
   color: $red;
+}
+
+.bright-highlight-text {
+  color: $light-red;
 }
 
 .highlight-text-hover {

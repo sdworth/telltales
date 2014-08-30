@@ -8,32 +8,7 @@
 </head>
 <body>
 
-<% if session[:user_id] %>
-  <div class="header-background">
-    <div class="header-wrapper">
-      <%= link_to 'TELLTALES', root_path, class: "highlight-text logo" %>
-      <span class="dropdown-button">...</span>
-      <span class="search-button">✭</span>
-      <span class="greeting">Welcome, <%= @user.username %></span>
-    </div>
-  </div>
-
-  <div class="search">
-    <%= form_tag("/search", method: "get") do %>
-      <%= text_field_tag :search, '', class: "textfield" %>
-      <%= submit_tag "Search", class: "button" %>
-    <% end %>
-  </div>
-
-  <div class="header-dropdown-menu">
-    <ul class="dropdown-list">
-      <li><%= link_to 'New Story', new_start_path %></li>
-      <li>My stories</li>
-      <li>Account settings</li>
-      <li><%= link_to "Logout", session_path, :method => :delete %></li>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: 'layouts/header', locals: {user: @user} %>
 
 <div class="wrapper">
   <p class='flash'><%= flash[:notice] %></p>

@@ -1,23 +1,26 @@
-<div class="header-background">
-  <div class="header-wrapper">
-    <h1>TELLTALES</h1>
-    <span class="greeting">Welcome, <% @user.username %></span>
-    <span class="search-button">🔎</span>
-    <span class="dropdown-button">...</span>
+<% if session[:user_id] %>
+  <div class="header-background">
+    <div class="header-wrapper">
+      <%= link_to 'TELLTALES', root_path, class: "highlight-text logo" %>
+      <span class="dropdown-button">...</span>
+      <span class="search-button">✭</span>
+      <span class="greeting">Welcome, <%= user.username %></span>
+    </div>
   </div>
-</div>
 
-<div class="search">
-  <%= form_tag("/search", method: "get") do %>
-  <%= text_field_tag(:search) %>
-  <%= submit_tag("Search") %>
-  <% end %>
-</div>
+  <div class="search">
+    <%= form_tag("/search", method: "get") do %>
+      <%= text_field_tag :search, '', class: "textfield" %>
+      <%= submit_tag "Search", class: "button" %>
+    <% end %>
+  </div>
 
-<div class="header-dropdown-menu">
-  <ul class="dropdown-list">
-    <li>New story</li>
-    <li>My stories</li>
-    <li>Account settings</li>
-  </ul>
-</div>
+  <div class="header-dropdown-menu">
+    <ul class="dropdown-list">
+      <li><%= link_to 'New Story', new_start_path %></li>
+      <li>My stories</li>
+      <li>Account settings</li>
+      <li><%= link_to "Logout", session_path, :method => :delete %></li>
+    </ul>
+  </div>
+<% end %>

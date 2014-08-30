@@ -17,7 +17,7 @@
   height: 250px;
 
   h1 {
-    color: $red;
+    color: $red
   }
 }
 
@@ -40,4 +40,8 @@
   flex-basis: 300px;
   flex-grow: 1;
   overflow: scroll;
+}
+
+.title {
+  color: $red;
 }

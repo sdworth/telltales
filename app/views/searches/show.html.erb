@@ -1,0 +1,32 @@
+<h1 class="centered-title">Search Results</h1>
+
+<div class="story-list">
+
+  <div id="search-story-area">
+    <p id="search-info">Showing stories based on: <span class="highlight-text" id="search-string"><%= @search_string %></span>. Did you
+      want to see <span class="filter-search highlight-text">users</span> instead?</p>
+
+    <p>Filter by:</p>
+
+    <span class="search-filter">Newest</span>
+    <span class="search-filter">Oldest</span>
+    <span class="search-filter">Longest</span>
+    <span class="search-filter">Creator</span>
+
+    <%= render @starts %>
+  </div>
+
+  <div id="search-users-area">
+    <p id="search-info">Showing users based on: <span class="highlight-text" id="search-string"><%= @search_string %></span>. Did you
+      want to see <span class="filter-search highlight-text">stories</span> instead?</p>
+
+    <% @users.each do |user| %>
+
+    <div class="user-blurb">
+      <p><%= user.username %></p>
+      <p>Stories created: <%= user.starts.count %></p>
+      <p>Member since: <%= user.created_at.strftime('%e %b %Y %I:%M%p') %></p>
+    </div>
+      <% end %>
+  </div>
+</div>

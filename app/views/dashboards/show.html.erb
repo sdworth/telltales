@@ -9,30 +9,6 @@
   <span class="dashboard-filter">Longest</span>
   <span class="dashboard-filter">Creator</span>
 
-  <% @starts.each do |start| %>
-    <div class="story-blurb">
-
-      <div class="blurb-functional">
-        <p>Last updated: <%= start.updated_at.strftime('%e %b %Y %I:%M%p') %></p>
-
-        <p>By: <%= start.user.username %></p>
-
-        <p>Created at: <%= start.created_at.strftime('%e %b %Y %I:%M%p') %></p>
-
-        <p>Additions: <%= start.additions %></p>
-
-        <p>Status: <%= start.completed ? 'Complete' : 'Ongoing' %></p>
-
-      </div>
-      <div class="blurb-story">
-
-        <h1><%= start.title %></h1>
-
-        <p><%= start.story_text %></p>
-
-      </div>
-    </div>
-
-  <% end %>
+  <%= render @starts %>
 
 </div>
