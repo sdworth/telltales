@@ -4,6 +4,7 @@ class DashboardsController < ApplicationController
 
   def show
     @starts = Start.where(user_id: @user.id).order(created_at: :desc)
+    @addition = Addition.new
 
     respond_to do |format|
       format.html

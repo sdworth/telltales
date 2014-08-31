@@ -4,4 +4,5 @@ class Start < ActiveRecord::Base
   validates :story_text, length: {maximum: 140}
 
   belongs_to :user
+  has_many :additions
 end

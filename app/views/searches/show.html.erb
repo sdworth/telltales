@@ -13,7 +13,7 @@
     <span class="search-filter">Longest</span>
     <span class="search-filter">Creator</span>
 
-    <%= render @starts %>
+    <%= render @starts, locals: {addition: @addition} %>
   </div>
 
   <div id="search-users-area">

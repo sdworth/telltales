@@ -7,16 +7,31 @@
 
     <p>Created at: <%= start.created_at.strftime('%e %b %Y %I:%M%p') %></p>
 
-    <p>Additions: <%= start.additions %></p>
+    <p>Additions: <%= start.additions.count %></p>
 
     <p>Status: <%= start.completed ? 'Complete' : 'Ongoing' %></p>
 
   </div>
-  <div class="blurb-story">
+  <a href="/starts/<%= start.id.to_s %>" class="blurb-story">
 
     <h1 class="story-blurb-title"><%= start.title %></h1>
 
     <p><%= start.story_text %></p>
 
-  </div>
+    <div class="closed-story-blurb">
+      <% start.additions.each do |addition| %>
+        <p><%= addition.addition_text %></p>
+      <% end %>
+    </div>
+
+    <div class="addition-form">
+      <%= form_for @addition, url: new_addition_path do |f| %>
+        <%= f.label 'Write your addition here!' %>
+        <%= f.text_area :addition_text, class: 'textfield textarea addition-text' %>
+      <% end %>
+
+      <p>Remaining characters: <span id="remaining-characters">140</span></p>
+    </div>
+
+  </a>
 </div>

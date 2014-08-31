@@ -1,5 +1,7 @@
 <h1 class="centered-title">Dashboard</h1>
 
+<p class="highlight-text centered-title">Click a story to expand and add on!</p>
+
 <div class="story-list">
 
   <p>Filter by:</p>
@@ -9,6 +11,6 @@
   <span class="dashboard-filter">Longest</span>
   <span class="dashboard-filter">Creator</span>
 
-  <%= render @starts %>
+  <%= render @starts, locals: {addition: @addition} %>
 
 </div>

@@ -1,28 +1,28 @@
-.dashboard-filter {
-  padding: 10px;
-  border-right: 1px solid black;
-}
+.addition-form {
+  display: none;
+  background-color: rgba(255, 255, 255, .7);
+  width: 90%;
+  margin: auto;
 
-.dashboard-filter:hover {
-  color: $light-red;
-}
+  label {
+    display: block;
+  }
 
-.story-blurb {
-  border: 2px white solid;
-  width: 80%;
-  margin: 50px;
-  padding: 10px;
-  margin-bottom: 50px;
-  display: flex;
-  height: 250px;
-
-  h1 {
-    color: $red
+  .textarea {
+    width: 70%;
   }
 }
 
-.story-list {
-  text-align: center;
+.blurb-story {
+  padding-left: 10px;
+  flex-shrink: 0;
+  flex-basis: 300px;
+  flex-grow: 1;
+  overflow: scroll;
+}
+
+.blurb-story:hover {
+  color: black
 }
 
 .blurb-functional {
@@ -34,14 +34,32 @@
   flex-shrink: 0;
 }
 
-.blurb-story {
-  padding-left: 10px;
-  flex-shrink: 0;
-  flex-basis: 300px;
-  flex-grow: 1;
-  overflow: scroll;
+
+.story-blurb {
+  border: 2px white solid;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 10px;
+  display: flex;
+  height: 250px;
+  transition: 1s;
+
+  h1 {
+    color: $red
+  }
+}
+
+.story-list {
+  text-align: center;
 }
 
 .title {
   color: $red;
+}
+
+.open-blurb {
+  height: 500px;
+  transition: 1s;
 }

@@ -1,3 +1,12 @@
+.dashboard-filter {
+  padding: 10px;
+  border-right: 1px solid black;
+}
+
+.dashboard-filter:hover {
+  color: $light-red;
+}
+
 .form-div {
   margin: auto;
   text-align: center;
