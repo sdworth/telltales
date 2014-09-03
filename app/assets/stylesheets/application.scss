@@ -49,14 +49,14 @@ body {
   color: $light-red;
   background-color: $dark-grey;
   background-image: linear-gradient(to bottom, #70747f, $dark-grey);
-  border: 1px $red solid;
+  border: 0px $red solid;
   border-radius: 10px;
   display: inline-block;
   padding: 2px;
   font-size: .75em;
   width: 5em;
   cursor: pointer;
-  box-shadow: .15em .15em $grey;
+  //box-shadow: .15em .15em $grey;
 }
 
 .button:disabled {

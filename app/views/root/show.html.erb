@@ -25,14 +25,14 @@
         <span class="register-username-error"></span>
         <span class='errors'><%= @user.errors[:username].first if @user.errors[:username] %></span>
         <br>
-        <%= f.text_field :username, class: "textfield", autofocus: true %>
+        <%= f.text_field :username, class: "textfield", autofocus: true, autocomplete: false %>
         <br>
       </div>
       <div>
         <%= f.label :email %>
         <span class="errors"></span>
         <br>
-        <%= f.text_field :email, class: "textfield" %>
+        <%= f.text_field :email, class: "textfield", autocomplete: false%>
         <br>
       </div>
       <div>
@@ -75,7 +75,7 @@
         <span class="errors"></span>
 
         <br>
-        <%= f.text_field :username, class: "textfield", autofocus: true %>
+        <%= f.text_field :username, class: "textfield", autofocus: true, autocomplete: false %>
       </div>
       <br>
 

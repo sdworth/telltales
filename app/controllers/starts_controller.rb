@@ -27,12 +27,12 @@ class StartsController < ApplicationController
     @start = Start.find(params[:id])
     @additions = @start.additions
 
-      @additions.collect! { |addition|
-        addition[username] = User.find(addition.user_id).username
+      @usernames = @additions.collect {|addition|
+          [addition.id, User.find(addition.user_id).username]
       }
 
     respond_to do |format|
-      format.json { render json: @additions}
+      format.json { render json: [@additions, @usernames]}
     end
   end
 
@@ -42,7 +42,3 @@ class StartsController < ApplicationController
     params[:start].permit(:title, :story_text)
   end
 end
-
-# [{"id":1,"user_id":4,"title":"wams ","story_text":"i am a young one trapped in the thoughts of an old one's head. while the others are just blurring away i'm trying to trick myself...","additions":[],"completed":false,"created_at":"2014-08-26T19:29:11.346Z","updated_at":"2014-08-26T19:29:11.346Z"},[]]
-
-

@@ -12,7 +12,7 @@
     <p>Status: <%= start.completed ? 'Complete' : 'Ongoing' %></p>
 
   </div>
-  <a href="/starts/<%= start.id.to_s %>" class="blurb-story">
+  <div id="/starts/<%= start.id.to_s %>" class="blurb-story">
 
     <h1 class="story-blurb-title"><%= start.title %></h1>
 
@@ -25,13 +25,16 @@
     </div>
 
     <div class="addition-form">
-      <%= form_for @addition, url: new_addition_path do |f| %>
+      <%= form_for @addition, url: "/starts/#{start.id}/additions" do |f| %>
         <%= f.label 'Write your addition here!' %>
         <%= f.text_area :addition_text, class: 'textfield textarea addition-text' %>
+
+        <p>Remaining characters: <span id="remaining-characters">140</span></p>
+
+        <%= f.submit 'Create Addition', class: 'button' %>
       <% end %>
 
-      <p>Remaining characters: <span id="remaining-characters">140</span></p>
     </div>
 
-  </a>
+  </div>
 </div>
