@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+// require "strftime.min.js"
 
 
 $(document).ready(function () {

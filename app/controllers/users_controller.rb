@@ -8,6 +8,14 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = User.find(session[:user_id])
+
+    respond_to do |format|
+      format.json { render json: @user.id}
+    end
+  end
+
   private
 
   def user_params

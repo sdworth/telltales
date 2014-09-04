@@ -3,7 +3,7 @@
   <div class="blurb-functional">
     <p>Last updated: <%= start.updated_at.strftime('%e %b %Y %I:%M%p') %></p>
 
-    <p class="story-blurb-username">By: <%= start.user.username %></p>
+    <p id='<%= start.user_id %>' class="story-blurb-username">By: <%= start.user.username %></p>
 
     <p>Created at: <%= start.created_at.strftime('%e %b %Y %I:%M%p') %></p>
 
@@ -15,6 +15,8 @@
   <div id="/starts/<%= start.id.to_s %>" class="blurb-story">
 
     <h1 class="story-blurb-title"><%= start.title %></h1>
+
+    <p class="flash"></p>
 
     <p><%= start.story_text %></p>
 

@@ -11,6 +11,8 @@ class AdditionsController < ApplicationController
     @addition.addition_number = @start.additions.count + 1
 
     if @addition.save
+      @addition.start.update(updated_at: Time.now)
+
       respond_to do |format|
         format.json { render json: [@addition, @addition.user.username] }
       end
@@ -18,6 +20,17 @@ class AdditionsController < ApplicationController
       raise
     end
   end
+
+  def destroy
+    @addition = Addition.find(params[:id]).destroy
+
+    respond_to do |format|
+      format.json { render json: @addition}
+    end
+  end
+
+  private
+
 
   def addition_params
     params[:addition].permit(:addition_text)

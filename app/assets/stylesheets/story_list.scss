@@ -21,6 +21,17 @@
   }
 }
 
+.addition-header {
+  margin-top: 20px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.addition-text {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
 .blurb-story {
   padding-left: 10px;
   flex-shrink: 0;
@@ -71,3 +82,5 @@
   height: 500px;
   transition: 1s;
 }
+
+

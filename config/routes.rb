@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :additions, except: [:index, :show]
   end
 
-  resources :users, only: [:create, :show]
+  resources :users, only: [:create, :show, :index]
 
   get '/usernames', to: 'root#new'
 

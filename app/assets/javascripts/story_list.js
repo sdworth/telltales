@@ -2,13 +2,28 @@
  * Created by savannah on 8/27/14.
  */
 
+var delete_addition = function (section) {
+    $(section).find('.button').click(function (e) {
+      var that = this
+      e.stopPropagation();
+      $.ajax({
+        url: $(this).attr('href'),
+        type: 'DELETE',
+        success: function () {
+          $(that).parent('.addition-header').next('.addition-text').fadeOut(500)
+            .end().fadeOut(500)
+        }
+      })
+    })
+  };
+
 $(document).ready(function () {
   $('.addition-button').click(function (e) {
     e.preventDefault();
     var that = this;
 
     var url = $(this).parent('form').attr('action');
-    var flash = $('.open-blurb').find('.flash');
+    var flash = $('.open-blurb').find('.flash').last;
     var data = {addition: {addition_text: $(this).siblings('.addition-text').val()}};
     var addition_target = $(this).parents('.open-blurb').find('.open-blurb-story');
 
@@ -99,17 +114,36 @@ $(document).ready(function () {
 
         var addition_target = $(blurb).find(".open-blurb-story");
 
-        $.each(story_array[0], function (index, addition) {
+        $.each(story_array[0].sort().reverse(), function (index, addition) {
 
           var username;
 
-          $.each(story_array[1], function (index, username_array) {
-            if (username_array[0] == addition.id) {
-              username = username_array[1]
-            }
-          });
+          var startUserId = $(blurb).parents('.story-blurb').find('.story-blurb-username').attr('id');
 
-          $(addition_target).append("<p class='addition-header'>Addition #" + addition.addition_number + " by <span class='highlight-text'>" + username + '</span>, Created on: ' + addition.created_at + '</p><p class="addition-text">' + addition.addition_text + '</p>')
+          var userId;
+          $.getJSON('/users', function (id) {
+            var userId = id;
+
+            if (startUserId == userId) {
+              var link = '<button class="button" id="addition-delete-button" data-method="delete" rel="nofollow" href="' + url + '/additions/' + addition.id + '">Delete</button>'
+            }
+            else {
+              var link = ''
+            }
+
+
+            $.each(story_array[1], function (index, username_array) {
+              if (username_array[0] == addition.id) {
+                username = username_array[1]
+              }
+            });
+
+            $(addition_target).append("<p class='addition-header'>Addition #" + (story_array[0].length - index) + " by <span class='highlight-text'>" + username + '</span>, Created on: ' + addition.created_at + ' ' + link + '</p><p class="addition-text">' + addition.addition_text + '</p>'
+            );
+
+            delete_addition(addition_target);
+
+          });
 
         });
 
@@ -117,6 +151,7 @@ $(document).ready(function () {
       }, 500);
 
     }).success();
+
 
   });
 
