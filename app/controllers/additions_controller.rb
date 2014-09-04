@@ -10,14 +10,13 @@ class AdditionsController < ApplicationController
 
     @addition.addition_number = @start.additions.count + 1
 
-    flash[:notice] = 'addition added!' if @addition.save
-
-    redirect_to root_path
-
-      # respond_to do |format|
-      #   format.json { render json: @additions}
-      # end
-
+    if @addition.save
+      respond_to do |format|
+        format.json { render json: [@addition, @addition.user.username] }
+      end
+    else
+      raise
+    end
   end
 
   def addition_params

@@ -3,9 +3,50 @@
  */
 
 $(document).ready(function () {
+  $('.addition-button').click(function (e) {
+    e.preventDefault();
+    var that = this;
+
+    var url = $(this).parent('form').attr('action');
+    var flash = $('.open-blurb').find('.flash');
+    var data = {addition: {addition_text: $(this).siblings('.addition-text').val()}};
+    var addition_target = $(this).parents('.open-blurb').find('.open-blurb-story');
+
+    $.post(url, data, function (newData) {
+      var addition = newData[0];
+      var username = newData[1];
+
+      flash.empty().show();
+      flash.append('Addition has been added!');
+      flash.fadeOut(5000);
+
+      $(addition_target).append(
+          "<p class='addition-header' style='display: none'>Addition #" +
+          addition.addition_number +
+          " by <span class='highlight-text'>" +
+          username +
+          '</span>, Created on: ' +
+          addition.created_at +
+          '</p><p class="addition-text" style="display: none">' +
+          addition.addition_text +
+          '</p>')
+        .find('.addition-header:nth-last-child(2)').add('.addition-text:last-child').fadeIn(500);
+
+      $(that).siblings('.addition-text').val('');
+
+    }).fail(function () {
+      flash.empty().show();
+      flash.append('Try giving your addition some words!');
+      flash.fadeOut(5000);
+    });
+  });
+
+
   var closeBlurb = function () {
     var toBeClosed = $('.open-blurb').find('.closed-story-blurb');
-    setTimeout(function() {$(toBeClosed).fadeIn(500)}, 500);
+    setTimeout(function () {
+      $(toBeClosed).fadeIn(500)
+    }, 500);
 
 
     $('.open-blurb').find('.open-blurb-story').fadeOut(500)
@@ -15,13 +56,14 @@ $(document).ready(function () {
         var that = this;
 
         $(this).find('.closed-story-blurb').fadeOut(500);
-        setTimeout(function() {
+        setTimeout(function () {
           $(that).find('.open-blurb-story').fadeIn(500)
-          .end().find('.addition-form').fadeIn(500)
-          .end().addClass('open-blurb')
-          .one('click', function () {
-            closeBlurb()})
-          }, 500)
+            .end().find('.addition-form').fadeIn(500)
+            .end().addClass('open-blurb')
+            .one('click', function () {
+              closeBlurb()
+            })
+        }, 500)
       })
       //.find('closed-story-blurb') //.setTimeout(function(){ $(this).fadeIn(500)}, 500)
       .removeClass('open-blurb')
