@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
 
   has_many :starts
   has_many :additions
+  has_many :follows
 end

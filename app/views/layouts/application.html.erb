@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Telltales</title>
-  <%= stylesheet_link_tag 'application', media: 'all'%>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
@@ -11,7 +11,9 @@
 <%= render partial: 'layouts/header', locals: {user: @user} %>
 
 <div class="wrapper">
-  <p class='flash'><%= flash[:notice] %></p>
+  <% if flash[:notice] %>
+    <p class='flash'><%= flash[:notice] %></p>
+  <% end %>
   <%= yield %>
 </div>
 

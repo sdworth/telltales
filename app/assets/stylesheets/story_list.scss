@@ -51,6 +51,13 @@
   flex-grow: 0;
   //flex-basis: 0;
   flex-shrink: 0;
+
+  .button {
+    background-color: rgba(255, 255, 255, 0);
+    background-image: none;
+    //border: white 2px solid;
+    color: $red;
+  }
 }
 
 

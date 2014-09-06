@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create, :show, :index]
 
+  post '/users/:user_id/follow/:user_followed_id', to: 'follows#create'
+
   get '/usernames', to: 'root#new'
 
   root "root#show"

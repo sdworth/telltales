@@ -1,4 +1,12 @@
 class UsersController < ApplicationController
+  def index
+    @user = User.find(session[:user_id])
+
+    respond_to do |format|
+      format.json { render json: @user.id}
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -8,12 +16,17 @@ class UsersController < ApplicationController
     end
   end
 
-  def index
+  def show
     @user = User.find(session[:user_id])
+    redirect_to '/' if @user == nil
 
-    respond_to do |format|
-      format.json { render json: @user.id}
-    end
+    @addition = Addition.new
+
+    @profile_user = User.find(params[:id])
+    @starts = Start.where(user_id: @profile_user.id)
+    @addition_starts = Addition.where(user_id: @profile_user.id).collect{|addition|
+      addition.start unless addition.start.user_id == session[:user_id]
+    }.compact.uniq
   end
 
   private

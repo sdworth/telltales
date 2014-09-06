@@ -4,7 +4,7 @@
 
 var delete_addition = function (section) {
     $(section).find('.button').click(function (e) {
-      var that = this
+      var that = this;
       e.stopPropagation();
       $.ajax({
         url: $(this).attr('href'),
@@ -23,7 +23,7 @@ $(document).ready(function () {
     var that = this;
 
     var url = $(this).parent('form').attr('action');
-    var flash = $('.open-blurb').find('.flash').last;
+    var flash = $('.open-blurb').find('.flash').last();
     var data = {addition: {addition_text: $(this).siblings('.addition-text').val()}};
     var addition_target = $(this).parents('.open-blurb').find('.open-blurb-story');
 

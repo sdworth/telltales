@@ -1,0 +1,73 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.clearfix {
+  clear: both;
+  zoom:1;
+  &:before, &:after {
+    content: "\0020";
+    display: block;
+    height: 0;
+    overflow: hidden;
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+.user-profile {
+  display: block;
+  @extend .clearfix;
+
+  h1 {
+    display: inline-block;
+  }
+
+  img {
+    float: left;
+    margin: 20px;
+  }
+
+  .button {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-left: 20px;
+  }
+}
+
+.profile-starts-display {
+  text-align: center;
+  border: white solid 2px;
+  margin: 40px;
+}
+
+.profile-additions-display {
+  @extend .profile-starts-display;
+  display: none;
+}
+
+
+.profile-tab {
+  display: block;
+  margin-top: -10px;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  background-color: #e1e2e5;
+  border: white solid 2px;
+  width: 260px;
+  padding: 5px;
+  color: $red;
+}
+
+#contribution-tab, #create-tab {
+  margin-left: 10px;
+  border-left: 2px solid white;
+  padding-left: 10px;
+  color: black;
+}
+
+#contribution-tab:hover, #create-tab:hover {
+  color: $light-red;
+  cursor: pointer;
+}
