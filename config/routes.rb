@@ -6,7 +6,9 @@ Rails.application.routes.draw do
     resources :additions, except: [:index, :show]
   end
 
-  resources :users, only: [:create, :show, :index]
+  resources :users, only: [:create, :show, :index] do
+    resources :follows, only: :destroy
+  end
 
   post '/users/:user_id/follow/:user_followed_id', to: 'follows#create'
 

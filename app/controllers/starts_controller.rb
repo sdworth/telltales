@@ -28,7 +28,9 @@ class StartsController < ApplicationController
     @additions = @start.additions
 
       @usernames = @additions.collect {|addition|
-          [addition.id, User.find(addition.user_id).username]
+        user = User.find(addition.user_id)
+
+          [addition.id, user.id, user.username]
       }
 
     respond_to do |format|

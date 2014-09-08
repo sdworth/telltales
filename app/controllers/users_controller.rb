@@ -22,10 +22,13 @@ class UsersController < ApplicationController
 
     @addition = Addition.new
 
+
     @profile_user = User.find(params[:id])
+    @follow = Follow.find_by("user_id = #{@user.id} AND user_followed_id = #{@profile_user.id}")
+
     @starts = Start.where(user_id: @profile_user.id)
     @addition_starts = Addition.where(user_id: @profile_user.id).collect{|addition|
-      addition.start unless addition.start.user_id == session[:user_id]
+      addition.start unless addition.start.user_id == @profile_user.id
     }.compact.uniq
   end
 

@@ -27,6 +27,8 @@ $(document).ready(function () {
     var data = {addition: {addition_text: $(this).siblings('.addition-text').val()}};
     var addition_target = $(this).parents('.open-blurb').find('.open-blurb-story');
 
+
+    //allows the posting of a new story addition
     $.post(url, data, function (newData) {
       var addition = newData[0];
       var username = newData[1];
@@ -57,6 +59,7 @@ $(document).ready(function () {
   });
 
 
+  //allows a blurb to close and open again
   var closeBlurb = function () {
     var toBeClosed = $('.open-blurb').find('.closed-story-blurb');
     setTimeout(function () {
@@ -80,11 +83,10 @@ $(document).ready(function () {
             })
         }, 500)
       })
-      //.find('closed-story-blurb') //.setTimeout(function(){ $(this).fadeIn(500)}, 500)
       .removeClass('open-blurb')
   };
 
-
+  //sets up the first opening of a blurb
   $('.blurb-story').one('click', function () {
     var blurb = this;
 
@@ -117,14 +119,13 @@ $(document).ready(function () {
         $.each(story_array[0].sort().reverse(), function (index, addition) {
 
           var username;
+          var userId;
 
           var startUserId = $(blurb).parents('.story-blurb').find('.story-blurb-username').attr('id');
 
-          var userId;
           $.getJSON('/users', function (id) {
-            var userId = id;
 
-            if (startUserId == userId) {
+            if (startUserId == id) {
               var link = '<button class="button" id="addition-delete-button" data-method="delete" rel="nofollow" href="' + url + '/additions/' + addition.id + '">Delete</button>'
             }
             else {
@@ -134,11 +135,23 @@ $(document).ready(function () {
 
             $.each(story_array[1], function (index, username_array) {
               if (username_array[0] == addition.id) {
-                username = username_array[1]
+                username = username_array[2];
+                userId = username_array[1];
               }
             });
 
-            $(addition_target).append("<p class='addition-header'>Addition #" + (story_array[0].length - index) + " by <span class='highlight-text'>" + username + '</span>, Created on: ' + addition.created_at + ' ' + link + '</p><p class="addition-text">' + addition.addition_text + '</p>'
+            $(addition_target).append(
+                "<p class='addition-header'>Addition #" +
+                (story_array[0].length - index) +
+                  " by <a href='/users/" + userId + "' class='highlight-text'>" +
+                  username +
+                  '</a>, Created on: ' +
+                  addition.created_at +
+                  ' ' +
+                  link +
+                  '</p><p class="addition-text">' +
+                  addition.addition_text +
+                  '</p>'
             );
 
             delete_addition(addition_target);

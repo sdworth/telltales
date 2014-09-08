@@ -4,7 +4,7 @@
     <button class="button">❤︎</button>
     <p>Last updated: <%= start.updated_at.strftime('%e %b %Y %I:%M%p') %></p>
 
-    <p id='<%= start.user_id %>' class="story-blurb-username">By: <a href='/users/<%=start.user.id %>'><%= start.user.username %></a> <button class="button">Follow</button></p>
+    <p id='<%= start.user_id %>' class="story-blurb-username">By: <a href='/users/<%=start.user.id %>'><%= start.user.username %></a></p>
 
     <p>Created at: <%= start.created_at.strftime('%e %b %Y %I:%M%p') %></p>
 
