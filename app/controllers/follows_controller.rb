@@ -1,7 +1,7 @@
 class FollowsController < ApplicationController
   before_filter :require_authentication!
 
-  def update
+  def create
     @follow = Follow.new(
       user_id: @user.id,
       user_followed_id: params[:user_followed_id]
@@ -14,7 +14,7 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    raise unless Follow.find(params[:id]).destroy
+    raise unless Follow.find_by("user_id = #{@user.id} AND user_followed_id = #{params[:id]}").destroy
 
     respond_to do |format|
       format.json { render json: @follow}

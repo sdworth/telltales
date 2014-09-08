@@ -2,20 +2,21 @@
  * Created by savannah on 9/5/14.
  */
 var followUser = function () {
-  $('.follow-button').click(function () {
+  $('.follow-button').one('click', function () {
     var url = $(this).attr('id');
     var that = this;
 
     $.post(url, function () {
       $(that).text('following')
-        .addClass('followed-button');
+        .addClass('followed-button')
+        .removeClass('follow-button');
       unfollowUser();
     })
   });
 };
 
 var unfollowUser = function () {
-  $('.followed-button').click(function () {
+  $('.followed-button').one('click', function () {
     var url = $(this).attr('id');
     var that = this;
 
@@ -24,7 +25,8 @@ var unfollowUser = function () {
       type: 'DELETE',
       success: function () {
         $(that).text('follow')
-          .removeClass('followed-button');
+          .removeClass('followed-button')
+          .addClass('follow-button');
         followUser();
       }
     })

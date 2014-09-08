@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     resources :follows, only: :destroy
   end
 
-  post '/users/:user_id/follow/:user_followed_id', to: 'follows#create'
+  post '/users/:user_id/follows/:user_followed_id', to: 'follows#create'
 
   get '/usernames', to: 'root#new'
 
