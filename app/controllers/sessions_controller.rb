@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
 
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to dashboard_path, notice: 'You are now logged in.'
+      redirect_to '/dashboard'
     else
       session[:user_id] = nil
       redirect_to root_path, alert: 'Username or password is incorrect!'

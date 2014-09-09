@@ -1,21 +1,25 @@
 /**
  * Created by savannah on 8/27/14.
  */
+var date_converter = function(string) {
+  var date = new Date(string);
+  return date.toDateString()
+};
 
 var delete_addition = function (section) {
-    $(section).find('.button').click(function (e) {
-      var that = this;
-      e.stopPropagation();
-      $.ajax({
-        url: $(this).attr('href'),
-        type: 'DELETE',
-        success: function () {
-          $(that).parent('.addition-header').next('.addition-text').fadeOut(500)
-            .end().fadeOut(500)
-        }
-      })
+  $(section).find('.button').click(function (e) {
+    var that = this;
+    e.stopPropagation();
+    $.ajax({
+      url: $(this).attr('href'),
+      type: 'DELETE',
+      success: function () {
+        $(that).parent('.addition-header').next('.addition-text').fadeOut(500)
+          .end().fadeOut(500)
+      }
     })
-  };
+  })
+};
 
 $(document).ready(function () {
   $('.addition-button').click(function (e) {
@@ -37,13 +41,15 @@ $(document).ready(function () {
       flash.append('Addition has been added!');
       flash.fadeOut(5000);
 
+      $(that).parents('.addition-form').find('#remaining-characters').empty().append('140');
+
       $(addition_target).append(
           "<p class='addition-header' style='display: none'>Addition #" +
           addition.addition_number +
           " by <span class='highlight-text'>" +
           username +
           '</span>, Created on: ' +
-          addition.created_at +
+          date_converter(addition.created_at) +
           '</p><p class="addition-text" style="display: none">' +
           addition.addition_text +
           '</p>')
@@ -103,7 +109,6 @@ $(document).ready(function () {
 
       $(blurb).find('.closed-story-blurb').fadeOut(500);
 
-      $(blurb).parent('.story-blurb').addClass('open-blurb');
 
       setTimeout(function () {
         $(blurb).find('.addition-form')
@@ -113,23 +118,29 @@ $(document).ready(function () {
           .before(
           '<div class="open-blurb-story"></div>');
 
+        $(blurb).parent('.story-blurb').addClass('open-blurb');
 
         var addition_target = $(blurb).find(".open-blurb-story");
 
-        $.each(story_array[0].sort().reverse(), function (index, addition) {
+        var username;
+        var userId;
+        var index;
+        var addition;
+        var startUserId = $(blurb).parents('.story-blurb').find('.story-blurb-username').attr('id');
+        var link;
 
-          var username;
-          var userId;
 
-          var startUserId = $(blurb).parents('.story-blurb').find('.story-blurb-username').attr('id');
+        $.getJSON('/users', function (id) {
 
-          $.getJSON('/users', function (id) {
+          for (index = 0; index < story_array[0].length; ++index) {
+
+            addition = story_array[0][index];
 
             if (startUserId == id) {
-              var link = '<button class="button" id="addition-delete-button" data-method="delete" rel="nofollow" href="' + url + '/additions/' + addition.id + '">Delete</button>'
+              link = '<button class="button" id="addition-delete-button" data-method="delete" rel="nofollow" href="' + url + '/additions/' + addition.id + '">Delete</button>'
             }
             else {
-              var link = ''
+              link = ''
             }
 
 
@@ -142,29 +153,32 @@ $(document).ready(function () {
 
             $(addition_target).append(
                 "<p class='addition-header'>Addition #" +
-                (story_array[0].length - index) +
-                  " by <a href='/users/" + userId + "' class='highlight-text'>" +
-                  username +
-                  '</a>, Created on: ' +
-                  addition.created_at +
-                  ' ' +
-                  link +
-                  '</p><p class="addition-text">' +
-                  addition.addition_text +
-                  '</p>'
+                (1 + index) +
+                " by <a href='/users/" + userId + "' class='highlight-text'>" +
+                username +
+                '</a>, Created on: ' +
+                date_converter(addition.created_at) +
+                ' ' +
+                link +
+                '</p><p class="addition-text">' +
+                addition.addition_text +
+                '</p>'
             );
+
+            $(addition_target).find('.addition-header').fadeIn().end().find('.addition-text').fadeIn();
 
             delete_addition(addition_target);
 
-          });
+          }
 
         });
 
         $(blurb).find('.addition-form').fadeIn(500)
+
       }, 500);
 
-    }).success();
 
+    });
 
   });
 

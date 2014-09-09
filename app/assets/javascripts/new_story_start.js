@@ -20,20 +20,31 @@ $(document).ready(function () {
 
   //gives can't be blank errors
   $('#new_start .textfield').on('input', function () {
+    console.log('check');
     var text = $('#start_story_text');
     var title = $('#start_title');
 
     if (text.val() != '' && title.val() != '') {
       $('#new_start .button').removeAttr('disabled')
+    } else {
+      $('#new_start .button').attr('disabled', true)
     }
   });
 
-  $('#new_start .button').click(function () {
-    if (this.attr('disabled') == 'disabled') {
+  $('#new_start #button-div').click(function () {
+    if ($(this).find('.button').attr('disabled') == 'disabled') {
       if ($('#start_story_text').val() == '') {
-        $('#start_story_text').addClass('error-field')
-      } else if ($('#start_title').val() == '') {
-        $('#start_title').addClass('error-field')
+        $('#start_story_text').siblings('.error-message').append('can\'t be blank')
+          .end().addClass('error-field').on('input', function(){
+            $(this).removeClass('error-field').siblings('.error-message').empty()
+          })
+
+      }
+      if ($('#start_title').val() == '') {
+        $('#start_title').siblings('.error-message').append('can\'t be blank')
+          .end().addClass('error-field').on('input', function(){
+            $(this).removeClass('error-field').siblings('.error-message').empty()
+          })
       }
     }
   });

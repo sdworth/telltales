@@ -1,14 +1,10 @@
 .centered-form {
   margin: auto;
-  width: 60%;
+  width: 80%;
 
 
   .textfield {
     width: 70%;
-  }
-
-  .side-label {
-    width: 100px;
   }
 
   .button {
@@ -18,12 +14,41 @@
 }
 
 .form-div {
-  background-color: rgba(255, 255, 255, .80);
   padding: 10px;
   padding-top: 20px;
-  width: 80%;
+  border: 2px $background-blend-grey solid;
+}
+
+.outer-form-div {
+ background-color: rgba(255, 255, 255, .80);
+ padding: 10px;
+ width: 80%;
+  margin: auto;
 }
 
 #prompt-generator {
   cursor: pointer;
+}
+
+.new-story-form {
+
+  .top-label {
+    text-align: center;
+  }
+
+  .textfield {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    width: 70%;
+  }
+
+  #button-div {
+    height: 30px;
+    padding-bottom: 10px;
+
+    .button {
+      margin-top: 0;
+    }
+  }
 }

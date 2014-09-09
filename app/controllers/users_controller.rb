@@ -26,10 +26,10 @@ class UsersController < ApplicationController
     @profile_user = User.find(params[:id])
     @follow = Follow.find_by("user_id = #{@user.id} AND user_followed_id = #{@profile_user.id}")
 
-    @starts = Start.where(user_id: @profile_user.id)
+    @starts = Start.where(user_id: @profile_user.id).order(updated_at: :desc)
     @addition_starts = Addition.where(user_id: @profile_user.id).collect{|addition|
       addition.start unless addition.start.user_id == @profile_user.id
-    }.compact.uniq
+    }.compact.uniq.sort_by{|start| start.updated_at}.reverse
   end
 
   private

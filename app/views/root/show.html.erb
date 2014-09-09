@@ -1,16 +1,16 @@
 
 <div class="row">
-  <div class="sample left"><%= @sample_text %></div>
+  <div class="sample left"><%= random_story %></div>
   <div class="focus"><h1>WELCOME TO <span class="highlight-text">TELLTALES!</span></h1>
 
     <p class="intro-text">TellTales allows you to create and add to other user's stories--150 characters at a time. Join
       now and start building your story!</p>
   </div>
-  <div class="sample right"><%= @sample_text %></div>
+  <div class="sample right"><%= random_story %></div>
 </div>
 
 <div class="row">
-  <div class="sample left"><%= @sample_text %></div>
+  <div class="sample left"><%= random_story %></div>
 
   <div class="focus register-block">
     <p><a href= '/' class="highlight-text login">Login</a>
@@ -19,20 +19,20 @@
 
       <span>Register</span> below: </p>
 
-    <%= form_for @user, html: {id: "register-form"} do |f| %>
+    <%= form_for @user, html: {id: "register-form", autocomplete: :off} do |f| %>
       <div>
         <%= f.label :username %>
         <span class="register-username-error"></span>
         <span class='errors'><%= @user.errors[:username].first if @user.errors[:username] %></span>
         <br>
-        <%= f.text_field :username, class: "textfield", autofocus: true, autocomplete: false %>
+        <%= f.text_field :username, class: "textfield", autofocus: true %>
         <br>
       </div>
       <div>
         <%= f.label :email %>
         <span class="errors"></span>
         <br>
-        <%= f.text_field :email, class: "textfield", autocomplete: false%>
+        <%= f.text_field :email, class: "textfield"%>
         <br>
       </div>
       <div>
@@ -69,7 +69,7 @@
 
       <span>Login</span> below:</p>
 
-    <%= form_for @user, url: session_path, html: {id: 'login-form'} do |f| %>
+    <%= form_for @user, url: session_path, html: {id: 'login-form', autocomplete: :off} do |f| %>
       <div>
         <%= f.label :username %>
         <span class="errors"></span>
@@ -93,10 +93,10 @@
 
     <% end %>
   </div>
-  <div class="sample right"><%= @sample_text %></div>
+  <div class="sample right"><%= random_story %></div>
 </div>
 <div class="row">
-  <div class="sample left"><%= @sample_text %></div>
-  <div class="sample square"><%= @sample_text %></div>
-  <div class="sample right"><%= @sample_text %></div>
+  <div class="sample left"><%= random_story %></div>
+  <div class="sample square"><%= random_story %></div>
+  <div class="sample right"><%= random_story %></div>
 </div>

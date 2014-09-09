@@ -8,28 +8,30 @@
   <p>Not sure what to write? Here's a prompt:
 
      <span class="highlight-text" id="prompt-target">
-       <%= Bazaar.item%>
+       <%= Bazaar.item %>
        <%= Bazaar.super_adj %>
-       <%= Bazaar.super_item%>
+       <%= Bazaar.super_item %>
      </span>
     ! Click <span class="highlight-text" id="prompt-generator">here</span> for a new one.</p>
 
-  <div class="form-div">
-    <%= form_for @start, html: {class: 'new-story-form'} do |f| %>
-      <div>
-        <%= f.label :title, class: 'side-label' %>
-        <span class='error-message'><%= @start.errors['title'].first %></span>
-        <%= f.text_field :title, class: 'textfield', autofocus: true %>
-      </div>
-      <div>
-        <%= f.label :story_text, class: 'side-label' %>
-        <span class='error-message'><%= @start.errors['story_text'].first %></span>
-        <%= f.text_area :story_text, class: 'textfield textarea' %>
-        <p>Remaining characters: <span id='remaining-characters'>140</span></p>
-      </div>
-      <div>
-        <%= f.submit 'Create Story', class: 'button', disabled: 'disabled' %>
-      </div>
-    <% end %>
+  <div class="outer-form-div">
+    <div class="form-div">
+      <%= form_for @start, html: {class: 'new-story-form'} do |f| %>
+        <div>
+          <%= f.label :title, class: 'top-label' %>
+          <span class='error-message'><%= @start.errors['title'].first %></span>
+          <%= f.text_field :title, class: 'textfield', autofocus: true %>
+        </div>
+        <div>
+          <%= f.label :story_text, class: 'top-label' %>
+          <span class='error-message'><%= @start.errors['story_text'].first %></span>
+          <%= f.text_area :story_text, class: 'textfield textarea' %>
+          <p>Remaining characters: <span id='remaining-characters'>140</span></p>
+        </div>
+        <div id="button-div">
+          <%= f.submit 'Create Story', class: 'button', disabled: 'disabled' %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
