@@ -1,6 +1,23 @@
 /**
  * Created by savannah on 8/15/14.
  */
+var check_for_blank = function (that) {
+  var blank = false;
+
+  var inputs = $(that).parents('.focus').find('input');
+
+  inputs.each(function () {
+    if (this.value == '') {
+      blank = true;
+    }
+  });
+
+  if (blank) {
+    $(that).parents('.focus').find('.button').attr('disabled', true)
+  }
+};
+
+
 $(document).ready(function () {
   $('.register').on('click', function (e) {
     e.preventDefault();
@@ -30,17 +47,19 @@ $(document).ready(function () {
         }
       });
 
-      if (!free ) {
-        $('button').attr('disabled', true);
+      if (!free) {
+        $('.button').attr('disabled', true);
         $('.register-username-error').text('is already taken');
         $(usernameField).addClass('error-field')
       } else if (usernameField.value == '') {
         $(usernameField).addClass('error-field')
-      } else
-      {
+      } else  {
+        $('.button').removeAttr('disabled');
         $(usernameField).removeClass('error-field');
         $('.register-username-error').text('')
       }
+
+      check_for_blank(usernameField)
     });
   });
 
@@ -59,7 +78,7 @@ $(document).ready(function () {
 
           blank = true;
         } else {
-  //        $(this).removeClass('error-field');
+          //        $(this).removeClass('error-field');
           $(this).parent('div').find('.errors').empty()
         }
       });
@@ -76,7 +95,6 @@ $(document).ready(function () {
   $('#user_password_confirmation').on('input', function () {
     var password = $(this).parents('.focus').find('#user_password');
     if (this.value != password[0].value) {
-      console.log($(this));
       $(this).addClass('error-field');
       $('.confirm-password-error').text('doesn\'t match');
       $(this).parents('.focus').find('.button').removeAttr('disabled')
@@ -112,7 +130,7 @@ $(document).ready(function () {
     }
 
 //    checks for other form errors
-    var errorText = $('.register-username-error');
+    var errorText = $(this).parents('.focus').find('.register-username-error');
     if (errorText[0].innerText == 'is already taken') {
       $(errorText).siblings('input').addClass('error-field');
       $(this).parents('.focus').find('.button').attr('disabled', true)
