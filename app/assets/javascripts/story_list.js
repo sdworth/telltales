@@ -175,9 +175,10 @@ $(document).ready(function () {
 
           }
 
+          $(blurb).find('.addition-form').fadeIn(500)
+
         });
 
-        $(blurb).find('.addition-form').fadeIn(500)
 
       }, 500);
 
