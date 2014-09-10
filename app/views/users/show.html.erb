@@ -6,9 +6,9 @@
 
       <span>Member since: <%= @profile_user.created_at.strftime('%e %b %Y %I:%M%p') %></span>
 
-      <% if @follow %>
+      <% if @follow && @profile_user.id != @user.id %>
         <button id="/users/<%= @user.id %>/follows/<%= @profile_user.id %>" class="button followed-button">following</button>
-      <% else %>
+      <% elsif @profile_user.id != @user.id %>
         <button id="/users/<%= @user.id %>/follows/<%= @profile_user.id %>" class="button follow-button">follow</button>
       <% end %>
     </div>

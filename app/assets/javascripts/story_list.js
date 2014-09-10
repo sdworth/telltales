@@ -55,6 +55,10 @@ $(document).ready(function () {
           '</p>')
         .find('.addition-header:nth-last-child(2)').add('.addition-text:last-child').fadeIn(500);
 
+      $(that).parents('.blurb-story').find('.closed-story-blurb').append(
+        '<p>' + addition.addition_text + '</p>'
+      );
+
       $(that).siblings('.addition-text').val('');
 
     }).fail(function () {
