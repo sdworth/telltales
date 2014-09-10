@@ -48,13 +48,13 @@ $(document).ready(function () {
       });
 
       if (!free) {
-        $('.button').attr('disabled', true);
+        $(usernameField).parents('.focus').find('.button').attr('disabled', true);
         $('.register-username-error').text('is already taken');
         $(usernameField).addClass('error-field')
       } else if (usernameField.value == '') {
         $(usernameField).addClass('error-field')
       } else  {
-        $('.button').removeAttr('disabled');
+        $(usernameField).parents('.focus').find('.button').removeAttr('disabled');
         $(usernameField).removeClass('error-field');
         $('.register-username-error').text('')
       }
