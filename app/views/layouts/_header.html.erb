@@ -4,7 +4,7 @@
       <%= link_to 'TELLTALES', root_path, class: "highlight-text logo" %>
       <span class="dropdown-button"><%= image_tag 'menu-icon.png', class: 'header-icon' %></span>
       <span class="search-button"><%= image_tag 'search.png', class: 'header-icon' %></span>
-      <span class="greeting">Welcome, <%= user.username %></span>
+      <span class="greeting">Welcome, <a href='/users/<%= user.id %>'><%= user.username %></a></span>
     </div>
   </div>
 
