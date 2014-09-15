@@ -1,4 +1,6 @@
 class RootController < ApplicationController
+  layout 'login'
+
   def show
     redirect_to "/dashboard" if session[:user_id]
 

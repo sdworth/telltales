@@ -1,15 +1,22 @@
+.login-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: auto;
+  max-width: 1440px;
+}
+
 .square {
   min-width: 300px;
-  min-height: 300px;
-  width: 300px/960px * 100%;
-  max-height: 300px;
+  width: 28%;
+  height: 300px;
   background-color: $light-grey;
-  display: inline-block;
   padding: 1em;
   opacity: .25;
   box-shadow: 1em 1em 1em $dark-grey;
   overflow: hidden;
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .focus {
@@ -42,7 +49,6 @@
 .left {
   @extend .square;
   float: left;
-  margin-right: 30px/960px * 100%;
 }
 
 .right {
@@ -54,12 +60,6 @@
   color: $light-red;
 }
 
-.row {
-  display: block;
-  width: 100%;
-  // probs not right
-  margin-top: 30px/960px * 100%;
-}
 
 .register, .login {
   cursor: pointer;
@@ -75,7 +75,6 @@
   display: none;
 
   label {
-    //    width: 2/6 * 100%;
     margin-bottom: .5em;
   }
 
@@ -92,6 +91,14 @@
   -webkit-text-fill-color: transparent;
 }
 
-.usernames {
-  display: none;
+@media all and (max-width: 900px) {
+  #four, #three, #seven, #eight, #nine {
+    display: none;
+  }
+}
+
+@media all and (max-width: 610px) {
+  #one, #six {
+    display: none;
+  }
 }
