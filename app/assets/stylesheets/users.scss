@@ -24,7 +24,6 @@
   h1 {
     display: inline-block;
     margin: 0;
-    margin-right: 10%;
     border: 1px solid white;
   }
 
@@ -32,6 +31,8 @@
     float: left;
     margin: 20px;
     padding: 10px;
+    width: 300px;
+    height: 300px;
     //border: solid white 2px;
   }
 
@@ -87,6 +88,10 @@
   border: white solid 2px;
   padding: 5px;
   margin-right: -2px;
+}
+
+.profile-timestamp {
+  margin-left: 10%;
 }
 
 #contribution-tab, #create-tab {

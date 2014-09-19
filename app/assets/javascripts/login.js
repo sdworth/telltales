@@ -22,7 +22,7 @@ $(document).ready(function () {
   $('.register').on('click', function (e) {
     e.preventDefault();
     $('.login-block').toggle();
-    $('.register-block').css('display', 'inline-block')
+    $('.register-block').css('display', 'block')
   });
 
   $('.login').on('click', function (e) {

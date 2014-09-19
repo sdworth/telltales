@@ -18,6 +18,7 @@
   overflow: hidden;
   border-radius: 10px;
   margin-bottom: 20px;
+  display: block;
 }
 
 .focus {
@@ -93,20 +94,13 @@
 }
 
 @media all and (max-width: 900px) {
-  #four, #three, #seven, #eight, #nine {
+  #six, #one, #seven, #eight, #nine {
     display: none;
   }
 }
 
 @media all and (max-width: 599px) {
-  #one, #six {
-    display: none;
-  }
-  .square {
-    display: block;
-  }
-
-  .register-block {
+  #three, #four {
     display: none;
   }
 
