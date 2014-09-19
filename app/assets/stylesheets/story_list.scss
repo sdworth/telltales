@@ -39,7 +39,7 @@
   flex-shrink: 0;
   flex-grow: 1;
   overflow: scroll;
-  flex-basis: 320px;
+  flex-basis: 300px;
   border: 2px white solid;
   height: 250px;
   transition: 1s;
@@ -50,7 +50,7 @@
 .blurb-functional {
   margin-top: -2px;
   margin-left: -2px;
-  width: 320px;
+  width: 300px;
   flex-grow: 0;
   flex-shrink: 0;
   border: 2px white solid;
@@ -86,7 +86,7 @@
 
 @media all and (max-width: 825px) {
   .blurb-functional {
-    flex-basis: 320px;
+    flex-basis: 300px;
     flex-grow: 1;
   }
 }
@@ -94,7 +94,7 @@
 @media all and (max-width: 905px) {
   .profile-starts-display .blurb-functional {
     flex-grow: 1;
-    flex-basis: 320px;
+    flex-basis: 300px;
   }
 }
 

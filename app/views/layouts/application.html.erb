@@ -11,10 +11,14 @@
 
 <%= render partial: 'layouts/header', locals: {user: @user} %>
 
+<div class="wrapper">
+
   <% if flash[:notice] %>
     <p class='flash'><%= flash[:notice] %></p>
   <% end %>
+
   <%= yield %>
+</div>
 
 <div class="footer">
   <%= link_to image_tag('twitter.gif', class: 'icon'), 'https://twitter.com/Savannahdworth' %>

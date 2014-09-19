@@ -11,7 +11,13 @@
   .logo {
     float: left;
     margin: 0;
-    font-size: 2em;
+    font-size: 32px;
+  }
+
+  @media all and (max-width: 400px) {
+    .logo {
+      font-size: 18px;
+    }
   }
 }
 
@@ -23,6 +29,7 @@
 
 .header-wrapper {
   width: 90%;
+  min-width: 310px;
   margin: auto;
 }
 

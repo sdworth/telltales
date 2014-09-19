@@ -4,6 +4,7 @@
   justify-content: space-around;
   margin: auto;
   max-width: 1440px;
+  width: auto;
 }
 
 .square {
@@ -97,8 +98,16 @@
   }
 }
 
-@media all and (max-width: 610px) {
+@media all and (max-width: 599px) {
   #one, #six {
     display: none;
   }
+  .square {
+    display: block;
+  }
+
+  .register-block {
+    display: none;
+  }
+
 }
