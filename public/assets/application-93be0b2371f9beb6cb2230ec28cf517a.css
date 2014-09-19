@@ -13,7 +13,7 @@
  *=
  *=
  */
-/* line 18, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 18, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 *, *:before, *:after {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -389,18 +389,18 @@
   padding: 10px;
 }
 
-/* line 33, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 33, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 a {
   color: #353639;
   text-decoration: none;
 }
 
-/* line 38, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 38, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 a:hover {
   color: #ee515c;
 }
 
-/* line 42, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 42, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 body {
   background-image: -webkit-linear-gradient(bottom, #8e92a0, white);
   background-image: linear-gradient(to top, #8e92a0, white);
@@ -409,7 +409,7 @@ body {
   margin: 0;
 }
 
-/* line 49, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 49, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .button {
   color: #ee515c;
   background-color: #353639;
@@ -425,62 +425,62 @@ body {
   box-shadow: 0.15em 0.15em #8e92a0;
 }
 
-/* line 63, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 63, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .button:disabled {
   opacity: .75;
   cursor: default;
 }
 
-/* line 68, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 68, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .button-hover {
   box-shadow: 0 0 1em #ee515c;
 }
 
-/* line 74, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 74, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .centered-title {
   margin-top: 1em;
   text-align: center;
 }
 
-/* line 79, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 79, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .errors {
   color: #ee515c;
 }
 
-/* line 83, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 83, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .error-message {
   color: #ee515c;
 }
 
-/* line 87, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 87, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .flash {
   text-align: center;
   color: #01baab;
 }
 
-/* line 92, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 92, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .highlight-text {
   color: #b33d45;
 }
 
-/* line 96, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 96, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .bright-highlight-text {
   color: #ee515c;
 }
 
-/* line 100, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 100, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .highlight-text-hover {
   color: #ee515c;
   cursor: pointer;
 }
 
-/* line 105, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 105, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .side-label {
   display: inline-block;
   width: 15%;
 }
 
-/* line 110, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 110, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .textfield {
   border: none;
   background-color: #d9deee;
@@ -490,20 +490,20 @@ body {
   padding: .5em;
 }
 
-/* line 119, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 119, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .textarea {
   height: 10em;
   resize: none;
   margin-top: .5em;
 }
 
-/* line 125, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 125, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .error-field {
   box-shadow: inset 0.25em 0.25em 0.25em #8e92a0, 0 0 1em #ee515c;
   outline-color: #ee515c;
 }
 
-/* line 131, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.scss */
+/* line 131, /Users/savannah/gSchoolWork/telltales/app/assets/stylesheets/application.css.scss */
 .wrapper {
   width: 80%;
   min-width: 960px;

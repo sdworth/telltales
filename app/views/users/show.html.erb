@@ -4,7 +4,7 @@
     <div class="profile-header">
       <h1><%= @profile_user.username %></h1>
 
-      <span>Member since: <%= @profile_user.created_at.strftime('%e %b %Y %I:%M%p') %></span>
+      <span class="profile-timestamp">Member since: <%= @profile_user.created_at.strftime('%e %b %Y %I:%M%p') %></span>
 
       <% if @follow && @profile_user.id != @user.id %>
         <button id="/users/<%= @user.id %>/follows/<%= @profile_user.id %>" class="button followed-button">following</button>
@@ -23,13 +23,13 @@
 </div>
 
 <div class="profile-starts-display">
-  <div class="profile-tab">Showing: Created Stories <span id="contribution-tab">Contributions</span></div>
+  <div class="profile-tab">Showing: Created Stories</div><div class="profile-tab" id="contribution-tab">Contributions</div>
 
   <%= render @starts, locals: {addition: @addition} %>
 </div>
 
 <div class="profile-additions-display">
-  <div class="profile-tab">Showing: Contributions <span id="create-tab">Created Stories</span></div>
+  <div class="profile-tab">Showing: Contributions </div><div class="profile-tab" id="create-tab">Created Stories</div>
 
   <% @addition_starts.each do |start| %>
 

@@ -1,7 +1,6 @@
 
 .header-background {
   width:100%;
-  min-width: 960px;
   background-color: $dark-grey;
   min-height: 60px;
   height: auto;
@@ -24,7 +23,6 @@
 
 .header-wrapper {
   width: 90%;
-  min-width: 960px * 0.9;
   margin: auto;
 }
 
@@ -100,5 +98,19 @@
   }
   .textfield {
    // margin-left: 20%;
+  }
+}
+
+.small-greeting {
+  display: none;
+}
+
+@media all and (max-width: 550px) {
+  .greeting {
+    display: none;
+  }
+
+  .small-greeting {
+    display: block;
   }
 }

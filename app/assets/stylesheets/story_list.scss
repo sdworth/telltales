@@ -35,26 +35,33 @@
 }
 
 .blurb-story {
-  padding-left: 10px;
+  margin-top: -2px;
   flex-shrink: 0;
-  flex-basis: 300px;
   flex-grow: 1;
   overflow: scroll;
+  flex-basis: 320px;
+  border: 2px white solid;
+  height: 250px;
+  transition: 1s;
+  padding: 10px;
+  margin-left: -2px;
 }
 
-
 .blurb-functional {
-  border-right: 1px white solid;
-  padding-right: 10px;
-  width: 280px;
+  margin-top: -2px;
+  margin-left: -2px;
+  width: 320px;
   flex-grow: 0;
-  //flex-basis: 0;
   flex-shrink: 0;
+  border: 2px white solid;
+  height: 250px;
+  transition: 1s;
+  padding: 10px;
+
 
   .button {
     background-color: rgba(255, 255, 255, 0);
     background-image: none;
-    //border: white 2px solid;
     color: $dark-grey;
   }
 
@@ -63,20 +70,31 @@
   }
 }
 
-
 .story-blurb {
-  border: 2px white solid;
   width: 80%;
   margin: auto;
   margin-top: 50px;
   margin-bottom: 50px;
-  padding: 10px;
   display: flex;
-  height: 250px;
-  transition: 1s;
+  flex-wrap: wrap;
+  justify-content: space-around;
 
   h1 {
     color: $red
+  }
+}
+
+@media all and (max-width: 825px) {
+  .blurb-functional {
+    flex-basis: 320px;
+    flex-grow: 1;
+  }
+}
+
+@media all and (max-width: 905px) {
+  .profile-starts-display .blurb-functional {
+    flex-grow: 1;
+    flex-basis: 320px;
   }
 }
 
@@ -93,4 +111,9 @@
   transition: 1s;
 }
 
+@media all and (max-width: 825px) {
+  .blurb-functional {
+    height: 250px;
+  }
+}
 

@@ -19,11 +19,12 @@
 .user-profile {
   display: block;
   @extend .clearfix;
+  margin-top: 5px;
 
   h1 {
     display: inline-block;
     margin: 0;
-    margin-right: 300px;
+    margin-right: 10%;
     border: 1px solid white;
   }
 
@@ -59,12 +60,14 @@
   background-color: white;
   height: 80px;
   padding: 10px;
+  margin: 5px;
 }
 
 .profile-starts-display {
   text-align: center;
   border: white solid 2px;
   margin: 40px;
+  margin-bottom: 200px;
 }
 
 .profile-additions-display {
@@ -73,23 +76,20 @@
 }
 
 .profile-description {
+  padding: 20px;
   margin-top: 40px;
 }
 
-
 .profile-tab {
-  display: block;
-  margin-top: -2px;
-  margin-left: 20px;
+  display: inline-block;
+  margin-top: -1px;
   margin-bottom: 10px;
-  background-color: $background-blend-grey;
   border: white solid 2px;
-  width: 340px;
   padding: 5px;
+  margin-right: -2px;
 }
 
 #contribution-tab, #create-tab {
-  margin-left: 10px;
   border-left: 2px solid white;
   padding-left: 10px;
 }
@@ -99,3 +99,14 @@
   cursor: pointer;
 }
 
+@media all and (max-width: 600px) {
+  .profile-starts-display {border: 0px solid white;}
+
+  .profile-additions-display {border: 0px solid white}
+
+  .profile-timestamp {display: none}
+
+
+}
+
+  

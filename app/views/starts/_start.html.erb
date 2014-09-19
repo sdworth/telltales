@@ -12,6 +12,11 @@
 
     <p>Status: <%= start.completed ? 'Complete' : 'Ongoing' %></p>
 
+    <% if start.user_id == @user.id %>
+      <div id="owned"></div>
+    <% end %>
+
+
   </div>
   <div id="/starts/<%= start.id.to_s %>" class="blurb-story">
 
