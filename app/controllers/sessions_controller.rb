@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  skip_before_filter :require_authentication!
+
   def create
     @user = User.find_by(
       username: params[:user][:username]

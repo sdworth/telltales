@@ -55,6 +55,11 @@
   border: 2px solid $background-blend-grey;
   height: 60px;
   padding: 8px;
+
+  form {
+    float: right;
+    display: inline-block;
+  }
 }
 
 .profile-header-border {

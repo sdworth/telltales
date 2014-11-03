@@ -5,7 +5,7 @@
 $(document).ready(function () {
 
   $('#prompt-generator').click(function () {
-    var promiseOfWords = $.getJSON('/starts/new')
+    var promiseOfWords = $.getJSON('/prompt')
       .success(function (words) {
         console.log(words);
 

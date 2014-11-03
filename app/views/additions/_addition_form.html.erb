@@ -1,0 +1,12 @@
+<div class="addition-form">
+  <p class="flash"></p>
+  <%= form_for get_new_addition, url: "/starts/#{start.id}/additions" do |f| %>
+    <%= f.label 'Write your addition here!' %>
+    <%= f.text_area :addition_text, class: 'textfield textarea addition-text' %>
+
+    <p>Remaining characters: <span id="remaining-characters">140</span></p>
+
+    <%= f.submit 'Create Addition', class: 'addition-button button' %>
+  <% end %>
+
+</div>

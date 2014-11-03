@@ -1,41 +1,35 @@
-require 'bazaar'
-
 class StartsController < ApplicationController
   before_filter :require_authentication!
 
   def new
     @start = Start.new
-
-    respond_to do |format|
-      format.html
-      format.json { render json: [Bazaar.item, Bazaar.super_adj, Bazaar.super_item] }
-    end
   end
 
   def create
-    @start = @user.starts.build(start_params)
+    @start = Start.new(start_params.merge({user_id: current_user.id}))
 
     if @start.save
-      flash[:notice] = "Story '#{@start.title}' created!"
-      redirect_to '/dashboard'
+      redirect_to dashboard_path, notice: "Story '#{@start.title}' created!"
     else
+      flash[:notice] = @start.errors.full_messages
       render :new
     end
   end
 
   def show
-    @start = Start.find(params[:id])
-    @additions = @start.additions
+    @additions = Start.find(params[:id]).additions
 
-      @usernames = @additions.collect {|addition|
-        user = User.find(addition.user_id)
+    @usernames = @additions.collect {|addition|
+      user = User.find(addition.user_id)
 
-          [addition.id, user.id, user.username]
-      }
+      [addition.id, user.id, user.username]
+    }
 
-    respond_to do |format|
-      format.json { render json: [@additions, @usernames]}
-    end
+    render json: [@additions, @usernames]
+  end
+
+  def prompt
+    render json: Prompt.get_array
   end
 
   private

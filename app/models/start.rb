@@ -5,4 +5,6 @@ class Start < ActiveRecord::Base
 
   belongs_to :user
   has_many :additions
+
+  default_scope {order(updated_at: :desc)}
 end

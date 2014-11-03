@@ -51,5 +51,12 @@ gem 'bazaar'
 
 gem 'selenium-webdriver'
 
+group :development, :test do
+  gem 'jasmine'
+end
+
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'dotenv-rails'
 
 

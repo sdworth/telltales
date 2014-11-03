@@ -1,6 +1,4 @@
 class AdditionsController < ApplicationController
-  before_filter :require_authentication!
-
   def create
     @start = Start.find(params[:start_id])
 

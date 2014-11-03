@@ -131,10 +131,19 @@ $(document).ready(function () {
 
 //    checks for other form errors
     var errorText = $(this).parents('.focus').find('.register-username-error');
+    var passwordError = $(this).parents('.focus').find('.confirm-password-error');
+    console.log(passwordError[0].innerText);
+
+
+
     if (errorText[0].innerText == 'is already taken') {
       $(errorText).siblings('input').addClass('error-field');
       $(this).parents('.focus').find('.button').attr('disabled', true)
     }
-
+    if (passwordError[0].innerText == "doesn't match") {
+      console.log('yup');
+      $(passwordError).siblings('input').addClass('error-field');
+      $(this).parents('.focus').find('.button').attr('disabled', true)
+    }
   });
 });

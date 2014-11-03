@@ -1,23 +1,20 @@
 class FollowsController < ApplicationController
-  before_filter :require_authentication!
-
   def create
     @follow = Follow.new(
-      user_id: @user.id,
-      user_followed_id: params[:user_followed_id]
+      user_id: current_user.id,
+      user_followed_id: params[:id]
     )
+
     raise unless @follow.save
 
-    respond_to do |format|
-      format.json { render json: @follow}
-    end
+    render json: @follow
   end
 
   def destroy
-    raise unless Follow.find_by("user_id = #{@user.id} AND user_followed_id = #{params[:id]}").destroy
+    follow = Follow.find_by(user_id: current_user.id, user_followed_id: params[:id])
 
-    respond_to do |format|
-      format.json { render json: @follow}
-    end
+    raise unless follow.destroy
+
+    render json: @follow
   end
 end

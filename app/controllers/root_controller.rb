@@ -1,19 +1,16 @@
 class RootController < ApplicationController
   layout 'login'
+  skip_before_filter :require_authentication!
 
   def show
-    redirect_to "/dashboard" if session[:user_id]
+    redirect_to "/dashboard" if logged_in?
 
     @user = User.new
-
-    # http://localhost:3000/username_availability.json?username=savannah
   end
 
   def new
     @register_check = User.all.collect {|user| user.username}
 
-    respond_to do |format|
-      format.json { render json: @register_check}
-    end
+   render json: @register_check
   end
 end

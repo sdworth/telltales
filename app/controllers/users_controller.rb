@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
+  before_filter :require_authentication!, except: [:create]
+
   def index
     @user = User.find(session[:user_id])
 
-    respond_to do |format|
-      format.json { render json: @user.id}
-    end
+    render json: @user.id
   end
 
   def create
@@ -16,25 +16,27 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    @user = User.find(params[:id])
+
+    if @user.update(user_params)
+      redirect_to edit_user_path, notice: 'Your profile has been updated!'
+    else
+      flash[:notice] = 'oopsie'
+      render :edit
+    end
+  end
+
   def show
-    @user = User.find(session[:user_id])
-    redirect_to '/' if @user == nil
-
-    @addition = Addition.new
-
-
     @profile_user = User.find(params[:id])
-    @follow = Follow.find_by("user_id = #{@user.id} AND user_followed_id = #{@profile_user.id}")
-
-    @starts = Start.where(user_id: @profile_user.id).order(updated_at: :desc)
-    @addition_starts = Addition.where(user_id: @profile_user.id).collect{|addition|
-      addition.start unless addition.start.user_id == @profile_user.id
-    }.compact.uniq.sort_by{|start| start.updated_at}.reverse
   end
 
   private
 
   def user_params
-    params[:user].permit(:email, :password, :password_confirmation, :username)
+    params[:user].permit(:email, :password, :password_confirmation, :username, :avatar)
   end
 end

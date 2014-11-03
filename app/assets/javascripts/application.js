@@ -22,18 +22,21 @@ $(document).ready(function () {
     $(this).toggleClass('button-hover');
   });
 
-  setTimeout(function() {$('.flash').fadeOut(1000)}, 3000);
+  setTimeout(function () {
+    $('.flash').fadeOut(1000)
+  }, 3000);
 
-  $(document).ready(function() {
-    function setHeight() {
-      var toHeight = $(window).height();
-      $('.wrapper').css({
-        'min-height': toHeight - 125 + 'px'
-      });
-    }
 
-    $(window).on('resize', function() { setHeight(); });
+  function setHeight() {
+    var toHeight = $(window).height();
+    $('.wrapper').css({
+      'min-height': toHeight - 125 + 'px'
+    });
+  }
+
+  $(window).on('resize', function () {
     setHeight();
   });
+  setHeight();
 
 });

@@ -1,7 +1,4 @@
 class DashboardsController < ApplicationController
-
-  before_filter :require_authentication!
-
   def show
     @starts = Start.where(user_id: @user.id)
 

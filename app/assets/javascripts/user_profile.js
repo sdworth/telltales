@@ -2,9 +2,11 @@
  * Created by savannah on 9/5/14.
  */
 var followUser = function () {
-  $('.follow-button').one('click', function () {
+  $('.follow-button').one('click', function (e) {
     var url = $(this).attr('id');
     var that = this;
+
+    e.preventDefault();
 
     $.post(url, function () {
       $(that).text('following')
@@ -16,9 +18,11 @@ var followUser = function () {
 };
 
 var unfollowUser = function () {
-  $('.followed-button').one('click', function () {
+  $('.followed-button').one('click', function (e) {
     var url = $(this).attr('id');
     var that = this;
+
+    e.preventDefault();
 
     $.ajax({
       url: url,

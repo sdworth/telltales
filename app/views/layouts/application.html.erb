@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="initial-scale=1.0">
 </head>
-<body>
+<body data-controller="<%=controller_name%>" data-action="<%=action_name%>">
 
 <%= render partial: 'layouts/header', locals: {user: @user} %>
 
