@@ -44,7 +44,7 @@ var link = function(target, id){
 
 
   if (owned.length == 1) {
-    return ' <button class="button" id="addition-delete-button" data-method="delete" rel="nofollow" href="' + url + '/additions/' + id + '">Delete</button>'
+    return ' <button class="button" id="addition-delete-button" data-method="delete" rel="nofollow" href="/additions/' + id + '">Delete</button>'
   } else {
     return ''
   }

@@ -1,7 +1,6 @@
 class Start < ActiveRecord::Base
-  validates :title, :story_text, :user_id, presence: true
-  validates :user_id, numericality: true
-  validates :story_text, length: {maximum: 140}
+  validates_presence_of :title, :story_text, :user_id
+  validates_length_of :story_text, maximum: 140
 
   belongs_to :user
   has_many :additions

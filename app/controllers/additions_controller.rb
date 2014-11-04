@@ -11,9 +11,7 @@ class AdditionsController < ApplicationController
     if @addition.save
       @addition.start.update(updated_at: Time.now)
 
-      respond_to do |format|
-        format.json { render json: [@addition, @addition.user.username, @addition.user.id] }
-      end
+     render json: [@addition, @addition.user.username, @addition.user.id]
     else
       raise
     end
@@ -28,16 +26,12 @@ class AdditionsController < ApplicationController
       raise 'not authorized to delete'
     end
 
-    respond_to do |format|
-      format.json { render json: @addition}
-    end
+    render json: @addition
   end
 
   private
 
-
   def addition_params
     params[:addition].permit(:addition_text)
   end
-
 end

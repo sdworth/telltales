@@ -9,7 +9,7 @@ var followUser = function () {
     e.preventDefault();
 
     $.post(url, function () {
-      $(that).text('following')
+      $(that).val('following')
         .addClass('followed-button')
         .removeClass('follow-button');
       unfollowUser();
@@ -28,7 +28,7 @@ var unfollowUser = function () {
       url: url,
       type: 'DELETE',
       success: function () {
-        $(that).text('follow')
+        $(that).val('follow')
           .removeClass('followed-button')
           .addClass('follow-button');
         followUser();

@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
 
   has_many :starts
   has_many :additions
-  has_many :starts, through: :additions
   has_many :follows
   has_attached_file :avatar, styles: {
     thumb: '100x100>',

@@ -49,10 +49,11 @@ gem 'autoprefixer-rails'
 
 gem 'bazaar'
 
-gem 'selenium-webdriver'
 
 group :development, :test do
   gem 'jasmine'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
 end
 
 gem 'paperclip'
