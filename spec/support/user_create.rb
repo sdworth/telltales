@@ -11,7 +11,15 @@ def create_other_user(overrides = {})
     username: 'erik',
     password: 'shaw',
     email: 'magneto@awesome.com'
-              })
+              }.merge(overrides))
+end
+
+def create_third_user(overrides = {})
+  User.create({
+    username: 'shirley',
+    password: 'fennes',
+    email: 'raging@nerifes.com'
+              }.merge(overrides))
 end
 
 def full_name(person)

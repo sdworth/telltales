@@ -11,9 +11,11 @@ class FollowsController < ApplicationController
   end
 
   def destroy
-    follow = Follow.find_by(user_id: current_user.id, user_followed_id: params[:id])
+    @follow = Follow.find_by(user_id: current_user.id, user_followed_id: params[:id])
 
-    raise unless follow.destroy
+    raise unless @follow
+
+    @follow.destroy
 
     render json: @follow
   end
