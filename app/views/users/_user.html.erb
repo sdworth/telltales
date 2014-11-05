@@ -1,0 +1,6 @@
+<div class="user-blurb">
+  <a href='/users/<%=user.id %>'><%= user.username %></a>
+  <p>Stories created: <%= user.starts.count %> |
+    Contributions made: <%= user.additions.count %></p>
+  <p>Member since: <%= user.created_at.strftime('%e %b %Y %I:%M%p') %></p>
+</div>

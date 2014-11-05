@@ -11,12 +11,12 @@ describe Dashboard do
     start_user_created = create_start(user)
 
     start_user_contributed_to = create_start(third_user)
-    create_addition(start_user_contributed_to)
+    create_addition(user, start_user_contributed_to)
 
     start_followee_created = create_start(other_user)
 
     start_followee_contributed_to = create_start(third_user)
-    create_addition(start_followee_contributed_to)
+    create_addition(other_user, start_followee_contributed_to)
 
     dash = Dashboard.new(user).get_starts
 

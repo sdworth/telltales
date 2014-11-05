@@ -3,7 +3,7 @@
 <div class="story-list">
 
   <div id="search-story-area">
-    <p id="search-info">Showing stories based on: <span class="highlight-text" id="search-string"><%= @search_string %></span>. Did you
+    <p id="search-info">Showing stories based on: <span class="highlight-text" id="search-string"><%= @search.string %></span>. Did you
       want to see <span class="filter-search highlight-text">users</span> instead?</p>
 
     <p>Filter by:</p>
@@ -13,21 +13,18 @@
     <span class="search-filter">Longest</span>
     <span class="search-filter">Creator</span>
 
-    <%= render @starts, locals: {addition: @addition} %>
+    <%= render @search.starts %>
   </div>
 
   <div id="search-users-area">
-    <p id="search-info">Showing users based on: <span class="highlight-text" id="search-string"><%= @search_string %></span>. Did you
-      want to see <span class="filter-search highlight-text">stories</span> instead?</p>
+    <p id="search-info">
+      Showing users based on:
+      <span class="highlight-text" id="search-string"><%= @search.string %></span>.
+      Did you want to see
+      <span class="filter-search highlight-text">stories</span>
+      instead?
+    </p>
 
-    <% @users.each do |user| %>
-
-    <div class="user-blurb">
-      <a href='/users/<%=user.id %>'><%= user.username %></a>
-      <p>Stories created: <%= user.starts.count %> |
-        Contributions made: <%= user.additions.count %></p>
-      <p>Member since: <%= user.created_at.strftime('%e %b %Y %I:%M%p') %></p>
-    </div>
-      <% end %>
+    <%= render @search.users %>
   </div>
 </div>
